@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import type { Route } from "./+types/root";
 
@@ -41,7 +42,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <GoogleOAuthProvider clientId="756449302310-eps05rvo5jqvqtk40o6vppih9hfd5fqc.apps.googleusercontent.com">
+      <Outlet />
+    </GoogleOAuthProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
