@@ -1,19 +1,47 @@
 
 
 
-# 📩 매일메일: AI 메일 분류 및 자동 요약 서비스
-> 하루에도 수십 통씩 쌓이는 메일, 일일이 확인하느라 시간 낭비하고 계신가요? **매일 메일**은 출퇴근 시간 동안에 쌓인 메일을 AI가 자동으로 요약하고 정리해주는 웹 서비스입니다!
+<h1 align="center">📩 매일메일</h1>
+<p align="center"><strong>AI 메일 분류 및 자동 요약 서비스</strong></p>
 
+<p align="center">
+  하루에도 수십 통씩 쌓이는 메일, 일일이 확인하느라 시간 낭비하고 계신가요?<br />
+  <strong>매일메일</strong>은 출퇴근 시간 동안에 쌓인 메일을<br />
+  AI가 자동으로 요약하고 정리해주는 웹 서비스입니다!
+</p>
+<br><br><br>
+<h2 align="center">🧑‍💻 개발자 소개</h2>
 
-## 🧑‍💻 개발자 소개  
+<p align="center">
+  <table align="center">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>전공</th>
+        <th>역할</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>김동영</td>
+        <td>영어통번역학과</td>
+        <td>서비스 기획</td>
+      </tr>
+      <tr>
+        <td>고홍규</td>
+        <td>수학과</td>
+        <td>프론트엔드 및 백엔드 개발</td>
+      </tr>
+      <tr>
+        <td>이서희</td>
+        <td>컴퓨터공학과</td>
+        <td>백엔드 및 프론트엔드 개발</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
 
-  
-| 이름 | 전공 | 역할 | 
-| ------ | ------ | ------ |
-| 김동영 | 영어통번역학과 | 서비스 기획 |
-| 고홍규 | 수학과 | 프론트엔드 및 백엔드 개발 |
-| 이서희 |컴퓨터공학과 | 백엔드 및 프론트엔드 개발 |
-
+<br><br><br>
 ## 🛠️ Tech Stack
 
 ### 🔧 Back-End  
@@ -39,6 +67,9 @@
 - 실행 명령어: `python app.py`  
 - 서비스 포트: `8080`  
 - 환경변수 관리: `python-dotenv`  
+<br><br><br>
+---
+
 
 
 ## 📁 파일 구조 (요약)
@@ -46,24 +77,21 @@
 
 ```sh
 📦 프로젝트 루트/
-├── public/                            
-├── src/
-│   └── assets/                         # 프론트엔드 소스 코드
-│       ├── App.jsx                     # 리액트 루트 컴포넌트
-│       ├── AwesomeBackground.jsx      # 배경 애니메이션 컴포넌트
-│       ├── main.jsx                    # React DOM 렌더링 진입점
-│       └── styles.css                  # 전역 스타일 정의
-├── index.html                          # 메인 HTML 템플릿
-├── .gitignore                          # Git에서 제외할 파일 목록
-├── README.md                           # 프로젝트 설명 문서
-├── eslint.config.js                    # ESLint 설정 파일
-├── package.json                        # 프로젝트 의존성 및 설정
-├── package-lock.json                   # 의존성 버전 고정 파일
-└── vite.config.js                      # Vite 빌드 설정
-
+├── app.py                  # Flask 백엔드 진입점
+├── templates/
+│   └── index.html          # 메인 페이지
+│   └── login.html          # 로그인 페이지
+│   └── work_time_setup.html           # 출퇴근 시간 설정 페이지
+│   └── news_topic_setup.html          # 관심 주제 설정 페이지
+├── static/
+│   └── assets/             # JS/CSS 파일
+├── credentials.json        # Google OAuth2 인증파일 (로컬에서만 사용)
+├── .env                    # 환경변수 파일 (GOOGLE, DB, OPENAI 등)
+└── database/
+    └── mail_summary.db     # SQLite 데이터베이스
 ```
 
-
+<br><br><br>
 ## 🌟 주요 기능 소개
 
 
@@ -77,14 +105,13 @@
 | 관심 주제 뉴스 요약 | 사용자 키워드 기반 뉴스 크롤링 및 AI 요약 |
 | 메일 통계 시각화 | 시간대별 메일 수신량을 차트로 시각화 |
 
-
+<br><br><br>
 ## 🔄 FE & BE 연동 방식
 
 
 - React 앱은 vite build로 빌드
 - 이후 index.html, JS/CSS를 Flask에 통합
 
-  
 
 ## 🚀 배포
 
@@ -95,3 +122,9 @@
 ```sh
 GOOGLE_CLIENT_ID
 GOOGLE_CLIENT_SECRET
+FLASK_SECRET_KEY
+DATABASE_URL
+OPENAI_API_KEY
+```
+- 포트: 8080
+- start command: **python app.py**
